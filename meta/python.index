@@ -1,0 +1,39 @@
++python basics
+*basics and printing
+*variables and operators
+*strings
+*lists
+*tuples
+*dictionary
+*convert dictionary to tuple to list
+*if else
+*loops
+*functions
+*function arguments types
+*function pass by value pass by reference
+*modules
+*packages
+*user input
+*executing os commands
+*file io
+*exceptions
++python advanced
+*object oriented programming
+*class built-in attributes
+*class built-in functions
+*class decorators
+*oop inheritance
+*iterators and generators
+*regular expressions basics
+*regular expressions patterns
+*multi-thread programming
+*threading module
+*thread synchronization
+*thread communication
+*database connection using cx_oracle module
+*xml dom parsing
+*xml sax parsing
+*sending email
+*logging messages
++python modules
++python useful resources
