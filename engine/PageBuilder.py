@@ -155,7 +155,7 @@ __INNER_CONTENT__
         l_menu_body  = ""
         l_panel_body = ""
 
-        l_menu_item  = """<div class="row-offcanvas row-offcanvas-left">
+        l_menu_item  = """
                 <div id="sidebar" class="sidebar-offcanvas">
                     <div class="col-md-12" style="background-color:white">
                         <br><br><br>
@@ -196,7 +196,7 @@ __INNER_CONTENT__
 
             elif( l_line[0] == "*" ):
 
-                l_menu_body = l_menu_body + "<a href=\"" + self.g_host_name + p_language + "//" + (l_line.replace('*','')).replace(' ','-') + ".html\">" + l_line.replace('*','') + "</a>" + "<br>" + "\n"
+                l_menu_body = l_menu_body + "<a href=\"" + p_host_name + p_language + "//" + (l_line.replace('*','')).replace(' ','-') + ".html\">" + l_line.replace('*','') + "</a>" + "<br>" + "\n"
        
         readlines_file.close()
         
@@ -208,7 +208,7 @@ __INNER_CONTENT__
     # Web Page Header section
     # #######################
     def headerSec(self, p_title, p_desc, p_keywords, p_author, p_lang_icon, p_jtron_bgcolor,
-                  p_txt_color, p_side_menu, p_language,
+                  p_txt_color, p_side_menu, p_language, p_static_top_menu, 
                   p_breadcrumb_data, p_topic_header, p_author_filename):
 
         print("HeaderSec")
@@ -240,12 +240,14 @@ __INNER_CONTENT__
         <title>__TITLE__</title>
     </head>
     <body>
+        <!-- Main Container START -->
+        <div id="container"> 
+        __STATIC_TOP_MENU__
         <!-- JumboTron Content Start -->            
         <div class=\"jumbotron subhead\" id=\"overview\" align=\"center\" style=\"background-color:__BG_COLOR__;\">
         <h1 style=\"color:__TEXT_COLOR__\">__LANG_ICON__&nbsp;&nbsp; __LANG_NAME__ TUTORIALS </h1>
-        </div>
-        <!-- Main Container START -->
-        <div id="container"> <div class=\"row-offcanvas row-offcanvas-left\"> __SIDE_MENU__
+        </div>        
+        <div class=\"row-offcanvas row-offcanvas-left\"> __SIDE_MENU__
         <!-- Main Body START -->
                 <div id="main">
 
@@ -263,13 +265,14 @@ __INNER_CONTENT__
         l_header = l_header.replace("__TEXT_COLOR__", p_txt_color)
         l_header = l_header.replace("__LANG_ICON__", p_lang_icon)
         l_header = l_header.replace("__TITLE__", p_title)
-        l_header = l_header.replace("__NAV_BAR__", p_nav_bar)
-        l_header = l_header.replace("__LANG_JUMBOTRON__", p_lang_jumbotron)
+        # l_header = l_header.replace("__NAV_BAR__", p_nav_bar)
+        # l_header = l_header.replace("__LANG_JUMBOTRON__", p_lang_jumbotron)
         l_header = l_header.replace("__SIDE_MENU__", p_side_menu)
         l_header = l_header.replace("__TOPIC_HEADER__", p_topic_header)
         l_header = l_header.replace("__BREADCRUMB_DATA__", p_breadcrumb_data)
         l_header = l_header.replace("__TOPIC_HEADER__", p_topic_header)
         l_header = l_header.replace("__AUTHOR_FILENAME__", p_author_filename)
+        l_header = l_header.replace("__STATIC_TOP_MENU__", p_static_top_menu)
 
         return(l_header);
 
@@ -278,17 +281,17 @@ __INNER_CONTENT__
     # Web Page Footer section
     def footerSec(self):
 
-        l_footer = """                    <!-- MD-12 START -->
+        l_footer = """                    <!-- MD-12 END -->
                     </div>
 
                     <br><br>
 
                 <!-- Main Body END -->
                 </div>
-            <!--/row-offcanvas -->
+            <!--/row-offcanvas END -->
             </div>
 
-        <!-- Main Container START -->
+        <!-- Container END -->
         </div>
     </body>
 
@@ -303,9 +306,9 @@ __INNER_CONTENT__
 
         l_data = """                        <br>
                             <dl class="dl-horizontal" style="padding-bottom: 0;">
-                            <dt>Author</i></dt>
+                            <dt>Author</dt>
                             <dd>__AUTHOR__</dd>
-                            <dt>File Name</i></dt>
+                            <dt>File Name</dt>
                             <dd>__FILE_NAME__</dd></dl>
                             <br>"""
 

@@ -226,7 +226,7 @@ class PageRender(cpa, pgb):
                 l_author_filename_data = pgBuildObj.authorFilename(l_author, l_file_name)
                 l_topic_header         = pgBuildObj.TopicHeader(self.g_theme_background_color, l_title)
                 l_side_bar             = pgBuildObj.SideMenuBuilder(self.g_language_name, self.g_index_file, self.g_host_name)
-
+                l_static_top_menu      = pgBuildObj.StaticTopMenu()
 
                 # print(pgBuildObj.headerSec(l_title, l_desc, l_keywords, l_author) + pgBuildObj.StaticTopMenu())
                 l_final_page +=  pgBuildObj.headerSec( l_title
@@ -238,12 +238,13 @@ class PageRender(cpa, pgb):
                                                       ,self.g_theme_text_color
                                                       ,l_side_bar
                                                       ,self.g_language_name
+                                                      ,l_static_top_menu
                                                       ,l_breadcrumb_data
                                                       ,l_topic_header
                                                       ,l_author_filename_data)           
 
                 # l_final_page +=  pgBuildObj.jTron(self.g_lang_icon, l_title, self.g_theme_background_color, self.g_theme_text_color)
-                l_final_page +=  pgBuildObj.StaticTopMenu()
+                # l_final_page +=  pgBuildObj.StaticTopMenu()
 
                 lrv_header    =  0    
                 # print(l_final_page)
